@@ -37,7 +37,17 @@ const medusaConfig = {
       authCors: AUTH_CORS,
       storeCors: STORE_CORS,
       jwtSecret: JWT_SECRET,
-      cookieSecret: COOKIE_SECRET
+      cookieSecret: COOKIE_SECRET,
+      compression: {
+        enabled: true,
+        level: 6,        // opcional
+        memLevel: 8,     // opcional
+        threshold: 1024, // opcional
+      },
+      express: {
+        json_limit: '5mb',
+        urlencoded_limit: '5mb',
+      }
     }
   },
   admin: {

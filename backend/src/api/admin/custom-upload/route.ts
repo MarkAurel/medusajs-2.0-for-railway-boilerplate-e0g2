@@ -1,4 +1,4 @@
-// src/api/admin/upload-image/route.ts
+// src/api/admin/custom-upload/route.ts
 import { 
     AuthenticatedMedusaRequest,
     MedusaResponse,
@@ -21,11 +21,13 @@ import {
     const fileModuleService = req.scope.resolve(Modules.FILE)
     
     try {
-      // Fazer upload do arquivo
+      // Convert base64 to buffer
+      const buffer = Buffer.from(content, 'base64')
+      
       const file = await fileModuleService.createFiles({
         filename,
         mimeType,
-        content
+        content: buffer.toString('binary')
       })
       
       res.status(200).json({ 
