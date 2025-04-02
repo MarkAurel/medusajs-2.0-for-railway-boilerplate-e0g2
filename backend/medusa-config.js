@@ -38,6 +38,9 @@ const medusaConfig = {
       storeCors: STORE_CORS,
       jwtSecret: JWT_SECRET,
       cookieSecret: COOKIE_SECRET,
+      bodyParser: {
+        limit: "50mb",
+      },
       compression: {
         enabled: true,
         level: 6,        // opcional
@@ -45,8 +48,8 @@ const medusaConfig = {
         threshold: 1024, // opcional
       },
       express: {
-        json_limit: '5mb',
-        urlencoded_limit: '5mb',
+        json_limit: '50mb',
+        urlencoded_limit: '50mb',
       }
     }
   },
