@@ -1,7 +1,7 @@
 import { Modules } from '@medusajs/framework/utils'
 import { INotificationModuleService, IOrderModuleService } from '@medusajs/framework/types'
 import { SubscriberArgs, SubscriberConfig } from '@medusajs/medusa'
-import { EmailTemplates } from '../modules/email-notifications/templates'
+import { EmailTemplates } from '../../../my-medusa-store/src/modules/email-notifications/templates'
 
 export default async function orderPlacedHandler({
   event: { data },

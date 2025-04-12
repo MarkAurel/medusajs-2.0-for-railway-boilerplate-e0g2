@@ -22,10 +22,14 @@ import {
   MINIO_BUCKET,
   MEILISEARCH_HOST,
   MEILISEARCH_ADMIN_KEY
-} from 'lib/constants';
+} from 'src/lib/constants';
 
 loadEnv(process.env.NODE_ENV, process.cwd());
 
+/**
+ * @typedef {import('@medusajs/types').ConfigModule} ConfigModule
+ * @type {ConfigModule}
+ */
 const medusaConfig = {
   projectConfig: {
     databaseUrl: DATABASE_URL,

@@ -2,7 +2,7 @@ import { INotificationModuleService, IUserModuleService } from '@medusajs/framew
 import { Modules } from '@medusajs/framework/utils'
 import { SubscriberArgs, SubscriberConfig } from '@medusajs/framework'
 import { BACKEND_URL } from '../lib/constants'
-import { EmailTemplates } from '../modules/email-notifications/templates'
+import { EmailTemplates } from '../../../my-medusa-store/src/modules/email-notifications/templates'
 
 export default async function userInviteHandler({
     event: { data },
