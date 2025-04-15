@@ -7,6 +7,7 @@ type UploadRequest = {
     filename: string
     mimeType: string
     content: string
+    folder?: string
   }[]
 }
 
@@ -20,10 +21,15 @@ export async function POST(
     // Remove o prefixo "data:image/..." se existir
     const cleanBase64 = files[0].content.replace(/^data:image\/\w+;base64,/, '')
     
+    // Constrói o caminho do arquivo incluindo a pasta se especificada
+    const filePath = files[0].folder 
+      ? `${files[0].folder}/${files[0].filename}`
+      : files[0].filename
+
     const { result } = await uploadFilesWorkflow(req.scope).run({
       input: {
         files: [{
-          filename: files[0].filename,
+          filename: filePath,
           mimeType: files[0].mimeType,
           content: Buffer.from(cleanBase64, 'base64').toString('binary'),
           access: "public"
