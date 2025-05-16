@@ -4,7 +4,6 @@ import { uploadFilesWorkflow } from "@medusajs/medusa/core-flows"
 
 type UploadRequest = {
   files: {
-    folder?: string
     filename: string
     mimeType: string
     content: string
